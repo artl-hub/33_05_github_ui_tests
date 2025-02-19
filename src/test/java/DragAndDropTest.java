@@ -18,7 +18,7 @@ public class DragAndDropTest {
 
     @Test
     void dragAndDropWithActions() {
-        // Открываем страницу
+
         open("https://the-internet.herokuapp.com/drag_and_drop");
 
         $("#column-a").dragAndDrop(DragAndDropOptions.to("#column-b"));
