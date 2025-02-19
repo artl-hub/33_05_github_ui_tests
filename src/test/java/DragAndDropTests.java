@@ -10,17 +10,18 @@ public class DragAndDropTests {
 
     @BeforeAll
     static void beforeAll() {
+        Configuration.baseUrl = "https://the-internet.herokuapp.com/drag_and_drop";
         Configuration.browserSize = "1920x1080";
         Configuration.pageLoadStrategy = "eager";
         Configuration.timeout = 5000;
-        Configuration.holdBrowserOpen = true;
+
 
     }
 
     @Test
     void dragAndDropWithActions() {
 
-        open("https://the-internet.herokuapp.com/drag_and_drop");
+        open("");
 
         actions().clickAndHold($("#column-a")).moveToElement($("#column-b")).release().perform();
 
@@ -30,10 +31,9 @@ public class DragAndDropTests {
     }
 
 
-
     @Test
     void dragAndDropWithSelenide(){
-        open("https://the-internet.herokuapp.com/drag_and_drop");
+        open("");
 
         $("#column-a").dragAndDrop(DragAndDropOptions.to("#column-b"));
 
