@@ -14,14 +14,18 @@ public class DragAndDropTests {
         Configuration.browserSize = "1920x1080";
         Configuration.pageLoadStrategy = "eager";
         Configuration.timeout = 5000;
+        Configuration.holdBrowserOpen = true;
 
 
     }
 
     @Test
-    void dragAndDropWithActions() {
+    void dragAndDropWithActionsTest() {
 
         open("");
+
+        $("#column-a").shouldHave(text("A"));
+        $("#column-b").shouldHave(text("B"));
 
         actions().clickAndHold($("#column-a")).moveToElement($("#column-b")).release().perform();
 
@@ -32,8 +36,11 @@ public class DragAndDropTests {
 
 
     @Test
-    void dragAndDropWithSelenide(){
+    void dragAndDropWithSelenideTest(){
         open("");
+
+        $("#column-a").shouldHave(text("A"));
+        $("#column-b").shouldHave(text("B"));
 
         $("#column-a").dragAndDrop(DragAndDropOptions.to("#column-b"));
 
